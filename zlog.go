@@ -1,5 +1,15 @@
 package zlog
 
+func Debug(args ...interface{}) {
+	defer sugaredLogger.Sync()
+	sugaredLogger.Debug(args)
+}
+
+func Debugf(format string, args ...interface{}) {
+	defer sugaredLogger.Sync()
+	sugaredLogger.Debugf(format, args)
+}
+
 func Info(args ...interface{}) {
 	defer sugaredLogger.Sync()
 	sugaredLogger.Info(args)
@@ -8,6 +18,16 @@ func Info(args ...interface{}) {
 func Infof(format string, args ...interface{}) {
 	defer sugaredLogger.Sync()
 	sugaredLogger.Infof(format, args)
+}
+
+func Warn(args ...interface{}) {
+	defer sugaredLogger.Sync()
+	sugaredLogger.Warn(args)
+}
+
+func Warnf(format string, args ...interface{}) {
+	defer sugaredLogger.Sync()
+	sugaredLogger.Warnf(format, args)
 }
 
 func Error(args ...interface{}) {

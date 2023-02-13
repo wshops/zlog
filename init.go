@@ -10,6 +10,9 @@ var sugaredLogger *zap.SugaredLogger
 // @param cfg 配置选项
 // @Description: 初始化logger
 func InitZap(cfg *zap.Config) {
+	if cfg == nil {
+		panic("cfg is nil")
+	}
 	logger, _ := cfg.Build()
 	sugaredLogger = logger.Sugar()
 }
