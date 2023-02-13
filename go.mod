@@ -1,4 +1,4 @@
-module zlog
+module github.com/wshops/zlog
 
 go 1.19
 
