@@ -2,6 +2,7 @@ package zlog
 
 import (
 	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
 type ZapLog struct {
@@ -29,6 +30,7 @@ func New(level ...LogLevel) *ZapLog {
 		logCfg = zap.NewProductionConfig()
 	} else {
 		logCfg = zap.NewDevelopmentConfig()
+		logCfg.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
 	}
 	zaplog.Cfg = &logCfg
 	logger, err := zaplog.Cfg.Build()
